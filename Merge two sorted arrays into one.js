@@ -4,8 +4,8 @@ function mergeArrays(arr1, arr2) {
     const allContact = [].concat(arr1, arr2)               //Объединение
     const allSet = Array.from(new Set(allContact))         //Удаление дублей
     const allSort = allSet.sort(compareNumeric)            //Сортировка Sort() используя одну из функций
-    //console.log(allContact)
     console.log(allSort)
+    return allSort
 
     function compareNumeric(a, b) {
         if (a > b) return 1;
@@ -16,6 +16,7 @@ function mergeArrays(arr1, arr2) {
     function compareNumbers(a, b) {
         return a - b;
     }
+    // return Array.from(new Set(arr1.concat(arr2).sort((a,b) => (a-b))));
 
 }
 
