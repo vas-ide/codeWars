@@ -1,7 +1,9 @@
 function add(num1, num2) {
     if (num1 === 0) {
+        console.log(num2)
         return num2
-    }else if (num2 === 0) {
+    } else if (num2 === 0) {
+        console.log(num1)
         return num1
     }
     let max = num1
@@ -13,31 +15,33 @@ function add(num1, num2) {
     let maxStr = String(max)
     let minStr = String(min)
     let minStrUpd = ''
-    let lenMax = String(num2).length
-    let lenMin = String(num1).length
-    if (num1 > num2) {
-        lenMax = String(num1).length
-        lenMin = String(num2).length
-    }
     let rez = ''
 
-    if (String(num1).length !== String(num1).length) {
-        const difLen = lenMax - lenMin
-        for (let i = 0; i < difLen; i++) {
+    if (String(num1).length < String(num2).length) {
+        for (let i = 0; i < String(num2).length - String(num1).length; i++) {
             minStrUpd += 0
         }
-        minStrUpd += minStr
-        for (let i = 0; i <= lenMax - 1; i++) {
-            rez += (Number(maxStr[i]) + Number(minStr[i]))
+        minStrUpd += String(num1)
+        for (let i = 0; i <= String(max).length - 1; i++) {
+            rez += (Number(maxStr[i]) + Number(minStrUpd[i]))
+        }
+
+    } else if (String(num1).length > String(num2).length) {
+        minStrUpd = minStr
+        for (let i = 0; i < String(num1).length - String(num2).length; i++) {
+            minStrUpd += 0
+        }
+        for (let i = 0; i <= String(max).length - 1; i++) {
+            rez += (Number(maxStr[i]) + Number(minStrUpd[i]))
         }
     }else {
-        for (let i = 0; i <= lenMax - 1; i++) {
+        for (let i = 0; i <= String(max).length - 1; i++) {
             rez += (Number(maxStr[i]) + Number(minStr[i]))
         }
     }
-    console.log(rez)
+    console.log(Number(rez))
     return Number(rez);
 }
-add(256, 689)
+add(1, 12)
+add(122,81)
 add(49999, 49999) //818181818
-add(0,123)
