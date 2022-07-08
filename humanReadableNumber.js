@@ -1,13 +1,1 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(String(*) * 5)
